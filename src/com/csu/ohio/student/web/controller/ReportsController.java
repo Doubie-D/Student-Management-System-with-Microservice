@@ -80,7 +80,7 @@ public class ReportsController {
 				session.setAttribute("semesterWiseFeePaidBeanList", semesterWiseFeePaidBeanList);
 			} else {
 				session.setAttribute("semesterWiseFeePaidBeanList", new ArrayList<SemesterBean>());
-				view.addObject("message", "No records found for vendor name " +semesterWiseFeePaidReportBean.getSemester() + ".");
+				view.addObject("message", "No records found for Semster " +semesterWiseFeePaidReportBean.getSemester() + ".");
 			}
 			Map<String, SemesterBean> semesterMap = semesterServiceConsumption.getSemesterMap();
 

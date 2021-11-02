@@ -23,7 +23,7 @@ function callSubmit() {
         document.getElementById("todate").value = "";
         return;
     }
-	document.forms["form1"].action="loadSemesterWiseFeePaidReportPage.html";
+	document.forms["form1"].action="getSemesterWiseFeePaidDetail.html";
 	document.forms["form1"].submit();
 }
 </script>
@@ -67,7 +67,7 @@ function callSubmit() {
 
 <br>
 
-<jstlcore:if test="${!empty vendorBean}">
+<jstlcore:if test="${!empty semesterBean}">
 				
 <table width="800px" class="container">
 <tr>
@@ -84,9 +84,9 @@ function callSubmit() {
 
 
 
-<jstlcore:if test="${!empty semesterWiseFeePaidReportBeanList}">
+<%-- <jstlcore:if test="${!empty semesterWiseFeePaidReportBeanList}">
 <%
-	List<SemesterWiseFeePaidBeanList> semesterWiseFeePaidReportBeanList  = (ArrayList)session.getAttribute("semesterWiseFeePaidBeanList");
+	List<SemesterWiseFeePaidBean> semesterWiseFeePaidReportBeanList  = (ArrayList)session.getAttribute("semesterWiseFeePaidReportBeanList");
 %>
 			<jstlcore:set var="semesterWiseFeePaidBeanList" scope="session" value="<%=semesterWiseFeePaidBeanList%>" />
 			<jstlcore:set var="totalCount" scope="session"
@@ -141,10 +141,10 @@ function callSubmit() {
 		<td align="center"><jstlcore:out value="${semesterWiseFeePaidBeanList.studenyId}"></jstlcore:out></td>
 		<td align="center"><jstlcore:out value="${semesterWiseFeePaidBeanList.studentName}"></jstlcore:out></td>
 		<td align="center"><jstlcore:out value="${semesterWiseFeePaidBeanList.semester}"></jstlcore:out></td>
-		<%-- <td align="center"><jstlcore:out value="${semesterWiseFeePaidBeanList.feePaidAmount}"></jstlcore:out></td> --%>
-		<%-- <td align="center"><jstlcore:out value="${semesterWiseFeePaidBeanList.materialUnitName}"></jstlcore:out></td> --%>
+		<td align="center"><jstlcore:out value="${semesterWiseFeePaidBeanList.feePaidAmount}"></jstlcore:out></td>
+		<td align="center"><jstlcore:out value="${semesterWiseFeePaidBeanList.materialUnitName}"></jstlcore:out></td>
 		<td align="center"><fmt:formatNumber type="number" groupingUsed="true" minFractionDigits="2" value="${semesterWiseFeePaidBeanList.feePaidAmount}" /></td>
-		<%-- <td align="center"><fmt:formatNumber type="number" groupingUsed="true" minFractionDigits="2" value="${vendorWisePurchaseBeanList.balance}" /></td> --%>	
+		<td align="center"><fmt:formatNumber type="number" groupingUsed="true" minFractionDigits="2" value="${semesterWiseFeePaidBeanList.balance}" /></td>	
 		<td align="center">
 		<fmt:parseDate value="${semesterWiseFeePaidBeanList.feePaidDate}" type="DATE" pattern="yyyy-MM-dd" var="feePaidDate"/> 
 		<fmt:formatDate value="${feePaidDate}" pattern="dd-MMM-yyyy" type="DATE"/>
@@ -152,7 +152,7 @@ function callSubmit() {
 		</tr>
 	</jstlcore:forEach>
 	</TABLE>
-	</jstlcore:if>
+	</jstlcore:if> --%>
 	<h4 align="center" style="color: red">${message}</h4>
 </f:form>
 

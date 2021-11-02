@@ -11,14 +11,14 @@ public class SemesterWiseFeePaidBean {
 	
 	public SemesterWiseFeePaidBean(Object[] columns) {   		
 		this.semesterBean.setStudentId(columns[0] != null ? (Integer)columns[0] : 0);
-		this.semesterBean.setStudentName((String)columns[1]);
-		this.semesterBean.setSemester((String)columns[2]);
-		this.semesterBean.setTransactionId((String)columns[3]);
-		this.semesterBean.setFeePaidAmount((Double)columns[4]);
-		Date date = (Date) columns[5];		
+		this.semesterBean.setTransactionId((String)columns[2]);
+		this.semesterBean.setStudentName((String)columns[3]);
+		this.semesterBean.setSemester((String)columns[4]);
+		this.semesterBean.setFeePaidAmount((Double)columns[5]);
+		this.balance = (Double) columns[6];
+		Date date = (Date) columns[7];		
 		this.semesterBean.setPaidDate(Date.valueOf(date.toString()));
-		this.semesterBean.setStatus((String)columns[6]);
-		this.balance = (Double) columns[7];
+		this.semesterBean.setStatus((String)columns[8]);
     }
 		
 	public SemesterWiseFeePaidBean() {

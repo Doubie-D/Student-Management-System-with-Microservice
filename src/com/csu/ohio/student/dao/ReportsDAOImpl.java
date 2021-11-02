@@ -37,8 +37,8 @@ public class ReportsDAOImpl implements ReportsDAO {
 		 * ;
 		 */
 		
-		String q = "select studentId, studentName, semester, transactionId, feePaidAmount, "
-				+ "status from semester where studentName = ?1";
+		String q = "select s.student_id, s.transaction_id, s.student_name, s.semester, s.fee_paid_amount, "
+				+ "s.balance, s.paid_date, s.status from semester as s where s.studentName = ?1";
 	
 		if (from != null) {
 			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
@@ -57,14 +57,15 @@ public class ReportsDAOImpl implements ReportsDAO {
 		for (Object[] row : resultList) {
 			SemesterBean bean=new SemesterBean();
 			bean.setStudentId(row[0] != null ? (Integer)row[0] : 0);
-			bean.setStudentName((String)row[1]);
-			bean.setSemester((String)row[2]);
-			bean.setTransactionId((String)row[3]);
+			bean.setTransactionId((String)row[1]);
+			bean.setStudentName((String)row[2]);
+			bean.setSemester((String)row[3]);
 			bean.setFeePaidAmount((Double)row[4]);
-			Date date = (Date) row[5];		
+			bean.setBalance((Double)row[5]);
+			Date date = (Date) row[6];		
 			//bean.setPurchaseDate(date.toString());
 			bean.setPaidDate(date);
-			bean.setStatus((String)row[6]);
+			bean.setStatus((String)row[7]);
 			System.out.println(bean);
 			semesterWiseFeePaidBeanList.add(bean);
 		}

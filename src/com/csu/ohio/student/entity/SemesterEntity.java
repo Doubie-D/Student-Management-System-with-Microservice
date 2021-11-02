@@ -2,6 +2,7 @@ package com.csu.ohio.student.entity;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -10,12 +11,21 @@ import javax.persistence.Table;
 @Table(name = "semester")
 public class SemesterEntity {
 	@Id
+	@Column(name = "student_id")
 	private Integer studentId;
-    private String transactionId;
+	@Column(name = "transaction_id")
+	private String transactionId;
+	@Column(name = "student_name")
     private String studentName;
+	@Column(name = "semester")
+    private String semester;
+	@Column(name = "fee_paid_amount")
     private Double feePaidAmount;
+	@Column(name = "balance")
 	private Double balance;
+	@Column(name = "paid_date")
 	private Date paidDate;
+	@Column(name = "status")
 	private String status;
 	
 	public Integer getStudentId() {
@@ -35,6 +45,12 @@ public class SemesterEntity {
 	}
 	public void setStudentName(String studentName) {
 		this.studentName = studentName;
+	}
+	public String getSemester() {
+		return semester;
+	}
+	public void setSemester(String semester) {
+		this.semester = semester;
 	}
 	public Double getFeePaidAmount() {
 		return feePaidAmount;
@@ -64,8 +80,7 @@ public class SemesterEntity {
 	@Override
 	public String toString() {
 		return "SemesterEntity [studentId=" + studentId + ", transactionId=" + transactionId + ", studentName="
-				+ studentName + ", feePaidAmount=" + feePaidAmount + ", balance=" + balance + ", paidDate=" + paidDate
-				+ ", status=" + status + "]";
+				+ studentName + ", semester=" + semester + ", feePaidAmount=" + feePaidAmount + ", balance=" + balance
+				+ ", paidDate=" + paidDate + ", status=" + status + "]";
 	}
-	
 }

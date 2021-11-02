@@ -17,17 +17,10 @@ public class SemesterBean {
     @DateTimeFormat(pattern="yyyy-MM-dd")
     @NotNull
     @Past
-	private Date feePaidDate;
-	private Double balance;
 	private Date paidDate;
+	private Double balance;
 	private String status;
 	
-	public Date getFeePaidDate() {
-		return feePaidDate;
-	}
-	public void setFeePaidDate(Date feePaidDate) {
-		this.feePaidDate = feePaidDate;
-	}
 	public String getSemester() {
 		return semester;
 	}
@@ -80,8 +73,7 @@ public class SemesterBean {
 	@Override
 	public String toString() {
 		return "SemesterBean [studentId=" + studentId + ", semester=" + semester + ", transactionId=" + transactionId
-				+ ", studentName=" + studentName + ", feePaidAmount=" + feePaidAmount + ", feePaidDate=" + feePaidDate
-				+ ", balance=" + balance + ", paidDate=" + paidDate + ", status=" + status + "]";
+				+ ", studentName=" + studentName + ", feePaidAmount=" + feePaidAmount + ", paidDate=" + paidDate
+				+ ", balance=" + balance + ", status=" + status + "]";
 	}
-	
 }
