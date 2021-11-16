@@ -38,7 +38,7 @@ public class ReportsDAOImpl implements ReportsDAO {
 		 */
 		
 		String q = "select s.student_id, s.transaction_id, s.student_name, s.semester, s.fee_paid_amount, "
-				+ "s.balance, s.paid_date, s.status from semester as s where s.studentName = ?1";
+				+ "s.balance, s.paid_date, s.status from semester as s where s.student_name = ?1";
 	
 		if (from != null) {
 			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");

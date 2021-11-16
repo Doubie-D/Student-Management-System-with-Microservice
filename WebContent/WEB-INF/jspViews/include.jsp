@@ -13,7 +13,7 @@
 <h1>Student Management System</h1>
 <div class="navbar">
   <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a> 
-  <a  href="purchaseEntry.html"><i class="fa fa-fw fa-user"></i> Student Information</a>
+  <a  href="studentInformation.html"><i class="fa fa-fw fa-user"></i> Student Information</a>
   <a  href="loadSemesterWiseFeePaidReportPage.html"><i class="fa fa-fw fa-user"></i> Fee Details</a>
   <a  href="login.html"><i class="fa fa-fw fa-user"></i> Logout</a>
 </div>

@@ -1,5 +1,12 @@
 package com.csu.ohio.student.web.controller;
 
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -34,5 +41,12 @@ public class RegisterController {
 		serviceimpl.registerStudent(bean);
 		ModelAndView mv = new ModelAndView("success1");
 		return mv;
+	}
+	
+	@RequestMapping(value="studentInformation.html", method = RequestMethod.GET )
+	public String doGet(HttpServletRequest request, HttpServletResponse response, ServletResponse res) throws ServletException, IOException {
+		
+		 
+		return "StudentInformation";
 	}
 }

@@ -4,14 +4,6 @@
 <html>
 <head>
 <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet"/>
-<!-- <script>
-function loadPage() {
-	document.forms["form1"].action="purchaseEntry.html";
-	document.forms["form1"].submit();
-	window.location.href="purchaseEntry.html";
-	
-}
-</script> -->
 <meta name="viewport" content="width=auto, initial-scale=1">
 <style type="text/css">
 body {

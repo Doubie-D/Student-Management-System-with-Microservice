@@ -4,7 +4,7 @@
 <%@ taglib prefix="jstlcore" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="java.util.*"%>
-<%@ page import="com.csu.ohio.student.bean.SemesterWiseFeePaidReportBean"%>
+<%@ page import="com.csu.ohio.student.bean.SemesterWiseFeePaidBean"%>
 <%@ page import="com.csu.ohio.student.bean.SemesterBean" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -75,8 +75,8 @@ function callSubmit() {
 <td>${semesterBean.studentId}</td>
 <th>Student Name:</th>
 <td>${semesterBean.studentName}</td>
-<%-- <th>Contact Person:</th>
-<td>${vendorBean.contactPerson}</td> --%>
+<th>Fee Paid Amount:</th>
+<td>${semesterBean.feePaidAmount}</td>
 <td></td>
 </tr>
 </table>
@@ -84,9 +84,9 @@ function callSubmit() {
 
 
 
-<%-- <jstlcore:if test="${!empty semesterWiseFeePaidReportBeanList}">
+<jstlcore:if test="${!empty semesterWiseFeePaidBeanList}">
 <%
-	List<SemesterWiseFeePaidBean> semesterWiseFeePaidReportBeanList  = (ArrayList)session.getAttribute("semesterWiseFeePaidReportBeanList");
+	List<SemesterWiseFeePaidBean> semesterWiseFeePaidBeanList  = (ArrayList)session.getAttribute("semesterWiseFeePaidBeanList");
 %>
 			<jstlcore:set var="semesterWiseFeePaidBeanList" scope="session" value="<%=semesterWiseFeePaidBeanList%>" />
 			<jstlcore:set var="totalCount" scope="session"
@@ -142,7 +142,7 @@ function callSubmit() {
 		<td align="center"><jstlcore:out value="${semesterWiseFeePaidBeanList.studentName}"></jstlcore:out></td>
 		<td align="center"><jstlcore:out value="${semesterWiseFeePaidBeanList.semester}"></jstlcore:out></td>
 		<td align="center"><jstlcore:out value="${semesterWiseFeePaidBeanList.feePaidAmount}"></jstlcore:out></td>
-		<td align="center"><jstlcore:out value="${semesterWiseFeePaidBeanList.materialUnitName}"></jstlcore:out></td>
+		<%-- <td align="center"><jstlcore:out value="${semesterWiseFeePaidBeanList.materialUnitName}"></jstlcore:out></td> --%>
 		<td align="center"><fmt:formatNumber type="number" groupingUsed="true" minFractionDigits="2" value="${semesterWiseFeePaidBeanList.feePaidAmount}" /></td>
 		<td align="center"><fmt:formatNumber type="number" groupingUsed="true" minFractionDigits="2" value="${semesterWiseFeePaidBeanList.balance}" /></td>	
 		<td align="center">
@@ -152,12 +152,24 @@ function callSubmit() {
 		</tr>
 	</jstlcore:forEach>
 	</TABLE>
-	</jstlcore:if> --%>
+	</jstlcore:if>
 	<h4 align="center" style="color: red">${message}</h4>
 </f:form>
 
 <div class="terms2">
   <p align="center" style="font-family: calibri;color: #6666CC;">Copyright © 2021 Cleveland State University All Rights Reserved.</p>
 </div>
+
+<!-- <script type="text/javascript">
+
+var headers = {head: 'no-cors'};
+const apiUrl = 'http://localhost:8090/semester/controller/getSemesters';
+
+fetch(apiUrl,{
+	method:"GET",
+	mode:"cors",
+	headers: headers.head
+}).then(response => response.json()).then(data => console.log(data));
+</script> -->
 </body>
 </html>
